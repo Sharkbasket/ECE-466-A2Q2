@@ -27,7 +27,7 @@ bool fifo::read(T& read_ref)
     return read_success;
 }
 
-bool fifo::read(T write_value)
+bool fifo::write(T write_value)
 {
     write_flag = true;
     write_storage = write_value;
