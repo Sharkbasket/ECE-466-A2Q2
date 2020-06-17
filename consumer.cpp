@@ -17,14 +17,14 @@ void consumer::eat_numbers()
         if (in->read(num) == true)
         {
             std::cout << "@" << sc_time_stamp()
-                      << "                " // Whitespace for readability
-                      << ": R " << num << " (success)" << endl;
+                      << ":                " // Whitespace for readability
+                      << "R " << num << " (success)" << endl;
         }
         else
         {
             std::cout << "@" << sc_time_stamp()
-                      << "                " // Whitespace for readability
-                      << ": R " << num << " (failure)" << endl;
+                      << ":                " // Whitespace for readability
+                      << "R " << num << " (failure)" << endl;
         }
         
         wait();
