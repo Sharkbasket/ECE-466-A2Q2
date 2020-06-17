@@ -12,9 +12,9 @@ class fifo : public sc_module, public fifo_in_if<T>, public fifo_out_if<T>
         // Constructor
         SC_HAS_PROCESS(fifo);
         fifo(sc_module_name name, const unsigned int N)
-        : sc_module(name), size(N), free(N), read_flag(false),
-          write_flag(false), read_success(false), write_success(false),
-          r_index(0), w_index(0), read_storage(NULL), write_storage(0)
+        : sc_module(name), read_flag(false), write_flag(false),
+          read_success(false), write_success(false), read_storage(NULL),
+          size(N), write_storage(0), free(N), r_index(0), w_index(0)
         {
             buffer = new T[size];
             
