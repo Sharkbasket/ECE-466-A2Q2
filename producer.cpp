@@ -17,12 +17,12 @@ void producer::spit_numbers()
         if (out->write(num) == true)
         {
             std::cout << "@" << sc_time_stamp()
-                      << ": W " << num << " (success)" << endl;
+                      << ": Write value " << num << " (success)" << endl;
         }
         else
         {
             std::cout << "@" << sc_time_stamp()
-                      << ": W " << num << " (failure)" << endl;
+                      << ": Write value " << num << " (failure)" << endl;
         }
         
         num = (num + 1) % 10;

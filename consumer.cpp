@@ -18,13 +18,13 @@ void consumer::eat_numbers()
         {
             std::cout << "@" << sc_time_stamp()
                       << ":                " // Whitespace for readability
-                      << "R " << num << " (success)" << endl;
+                      << "Read value " << num << " (success)" << endl;
         }
         else
         {
             std::cout << "@" << sc_time_stamp()
                       << ":                " // Whitespace for readability
-                      << "R " << num << " (failure)" << endl;
+                      << "Read failed" << endl;
         }
         
         wait();

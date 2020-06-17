@@ -9,11 +9,11 @@ template<class T>
 class fifo : public sc_module, public fifo_in_if<T>, public fifo_out_if<T>
 {
     public:
-        // Constructor
         SC_HAS_PROCESS(fifo);
         fifo(sc_module_name name, const unsigned int N)
         : sc_module(name), read_flag(false), write_flag(false),
-          read_success(false), write_success(false), size(N), write_storage(0), read_storage(NULL), free(N), r_index(0), w_index(0)
+          read_success(false), write_success(false), size(N), write_storage(0),
+          read_storage(NULL), free(N), r_index(0), w_index(0)
         {
             buffer = new T[size];
             
@@ -21,7 +21,6 @@ class fifo : public sc_module, public fifo_in_if<T>, public fifo_out_if<T>
             sensitive << read_req << write_req;
         }
         
-        // Destructor
         ~fifo()
         {
             delete[] buffer;
