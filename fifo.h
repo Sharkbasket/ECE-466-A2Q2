@@ -26,19 +26,21 @@ class fifo : public sc_module, public fifo_in_if<T>, public fifo_out_if<T>
             delete[] buffer;
         }
         
-        bool read(T& read_ref)
+        // Takes an object reference so that arbitrator can directly assign
+        // data from buffer to the passed argument
+        bool read(T& ref)
         {
             read_flag = true;
-            read_storage = &read_ref;
+            read_storage = &ref;
             read_req.notify();
             wait(done);
             return read_success;
         }
         
-        bool write(T write_value)
+        bool write(T value)
         {
             write_flag = true;
-            write_storage = write_value;
+            write_storage = value;
             write_req.notify();
             wait(done);
             return write_success;
@@ -68,7 +70,6 @@ class fifo : public sc_module, public fifo_in_if<T>, public fifo_out_if<T>
                     }
                 }
                 
-                // Write has lower priority, so it gets checked second
                 if (write_flag == true)
                 {
                     write_flag = false;
