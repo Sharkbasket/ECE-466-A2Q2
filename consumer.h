@@ -9,7 +9,7 @@ SC_MODULE(consumer)
 {
     // Ports
     sc_in_clk clk;
-    sc_port < fifo_in_if<int> > in;
+    sc_port< fifo_in_if<int> > in;
     
     // Constructor
     consumer(sc_module_name);

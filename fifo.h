@@ -5,8 +5,8 @@
 #include "fifo_if.h"    
 
 // Declaration of a FIFO hierarchical channel
-template <class T> class fifo
-: public sc_module, public fifo_in_if <T>, public fifo_out_if <T>
+template<class T> class fifo
+: public sc_module, public fifo_in_if<T>, public fifo_out_if<T>
 {
     public:
         // Constructor
@@ -27,6 +27,6 @@ template <class T> class fifo
         T* read_storage;
         T* buffer;
         unsigned int free, r_index, w_index;
-}
+};
 
 #endif

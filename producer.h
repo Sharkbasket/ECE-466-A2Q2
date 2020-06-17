@@ -9,7 +9,7 @@ SC_MODULE(producer)
 {
     // Ports
     sc_in_clk clk;
-    sc_port < fifo_out_if<int> > out;
+    sc_port< fifo_out_if<int> > out;
     
     // Constructor
     producer(sc_module_name);
