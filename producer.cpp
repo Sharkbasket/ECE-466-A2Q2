@@ -7,7 +7,7 @@ producer::producer(sc_module_name n) : sc_module(n)
     SC_CTHREAD(spit_numbers, clk.pos());
 }
 
-// Continuously try writing digits 0-9 to output port
+// Continuously try writing numbers to output port
 void producer::spit_numbers()
 {
     int num = 0;
@@ -26,5 +26,6 @@ void producer::spit_numbers()
         }
         
         num = (num + 1) % 10;
+        wait();
     }
 }
