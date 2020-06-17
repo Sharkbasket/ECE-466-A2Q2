@@ -19,7 +19,7 @@ int sc_main(int argc, char* argv[])
     my_consumer.clk(slow_clock);
     my_consumer.in(my_fifo);
     
-    sc_start(1000, SC_NS);
+    sc_start(300, SC_NS);
     
     return 0;
 }
