@@ -1,7 +1,8 @@
 #include "fifo.h"
 
 // Constructor
-fifo::fifo(sc_module_name name, const unsigned int N)
+template<class T>
+fifo<T>::fifo(sc_module_name name, const unsigned int N)
 : sc_module(name), size(N), free(N), read_flag(false), write_flag(false),
   read_success(false), write_success(false), r_index(0), w_index(0),
   read_storage(NULL), write_storage(0)
@@ -13,12 +14,14 @@ fifo::fifo(sc_module_name name, const unsigned int N)
 }
 
 // Destructor
-fifo::~fifo()
+template<class T>
+fifo<T>::~fifo()
 {
     delete[] buffer;
 }
 
-bool fifo::read(T& read_ref)
+template<class T>
+bool fifo<T>::read(T& read_ref)
 {
     read_flag = true;
     read_storage = &read_ref;
@@ -27,7 +30,8 @@ bool fifo::read(T& read_ref)
     return read_success;
 }
 
-bool fifo::write(T write_value)
+template<class T>
+bool fifo<T>::write(T write_value)
 {
     write_flag = true;
     write_storage = write_value;
@@ -36,7 +40,8 @@ bool fifo::write(T write_value)
     return write_success;
 }
 
-void fifo::arbitrator()
+template<class T>
+void fifo<T>::arbitrator()
 {
     while (true)
     {
