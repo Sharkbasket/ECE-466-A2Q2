@@ -6,8 +6,8 @@
 int sc_main(int argc, char* argv[])
 {
     // Channel instantiation
-    sc_clock fast_clock("fast_clock", 10, SC_NS);
-    sc_clock slow_clock("slow_clock", 20, SC_NS);
+    sc_clock fast_clock("fast_clock", 10.0, SC_NS);
+    sc_clock slow_clock("slow_clock", 20.0, SC_NS);
     fifo<int> my_fifo("my_fifo", 4);
     
     // Module instantiation & interconnection
