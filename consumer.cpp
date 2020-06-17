@@ -14,7 +14,7 @@ void consumer::eat_numbers()
     
     while (true)
     {
-        if (in->read(num&) == true)
+        if (in->read(num) == true)
         {
             std::cout << "@" << sc_time_stamp()
                       << "                " // Whitespace for readability

@@ -4,7 +4,7 @@
 #include "systemc.h"
 #include "fifo_if.h"
 
-// Declaration of a FIFO hierarchical channel
+// Definition of a FIFO hierarchical channel
 template<class T>
 class fifo : public sc_module, public fifo_in_if<T>, public fifo_out_if<T>
 {
