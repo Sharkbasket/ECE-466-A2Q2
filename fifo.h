@@ -9,10 +9,15 @@ template <class T> class fifo
         // Constructor
         fifo(sc_module_name, const unsigned int);
         
+        // Destructor
+        ~fifo();
+        
     private:
         bool read_flag, write_flag, read_success, write_success;
         const unsigned int size;
         sc_event read_req, write_req, done;
         T* buffer;
+        T* read_storage;
+        T write_storage;
         unsigned int free, r_index, w_index;
 }
