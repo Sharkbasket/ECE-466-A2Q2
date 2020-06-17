@@ -3,6 +3,7 @@
 
 #include "systemc.h"
 #include "fifo_if.h"
+#include <iostream>
 
 SC_MODULE(producer)
 {
