@@ -4,7 +4,9 @@
 SC_HAS_PROCESS(producer);
 producer::producer(sc_module_name n) : sc_module(n)
 {
-    SC_CTHREAD(spit_numbers, clk.pos());
+    SC_THREAD(spit_numbers);
+    sensitive << clk.pos();
+    dont_initialize();
 }
 
 // Continuously try writing numbers to output port
@@ -14,6 +16,7 @@ void producer::spit_numbers()
     
     while (true)
     {
+        wait();
         if (out->write(num) == true)
         {
             std::cout << "@" << sc_time_stamp()
@@ -26,6 +29,5 @@ void producer::spit_numbers()
         }
         
         num = (num + 1) % 10;
-        wait();
     }
 }
